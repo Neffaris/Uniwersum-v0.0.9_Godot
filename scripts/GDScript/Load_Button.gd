@@ -1,0 +1,20 @@
+extends Button
+
+export(bool) var start_focused = false
+
+func _ready():
+	if(start_focused):
+		grab_focus()
+
+	connect("mouse_entered",self,"_on_Button_mouse_entered")
+	connect("pressed",self,"_on_Button_Pressed")
+
+func _on_Button_mouse_entered():
+	grab_focus()
+
+func _on_Button_Pressed():
+	var next_level_resource = load("res://scenes/Test_Dungeon.tscn");
+	var next_level = next_level_resource.instance()
+	next_level.load_saved_game = true
+	get_tree().root.call_deferred("add_child", next_level)
+	queue_free()

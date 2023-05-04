@@ -1,0 +1,15 @@
+{
+	"events": [
+		{
+			"character": "character-1658005119.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Gdzie ja jestem?"
+		}
+	],
+	"metadata": {
+		"dialogic-version": "1.4.5",
+		"file": "timeline-1658005386.json",
+		"name": "First_Dialogue_Ever"
+	}
+}

@@ -1,0 +1,6 @@
+[
+    {"name":"Nieznajomy", "text":"Uga buga", "option_1":"Kim jestes?", "option_2":"Skad sie tu wziales?", "option_3":"(KONIEC ROZMOWY)"},
+    {"name":"Fioletowy Trol", "text":"Jestem fioletowym trolem", "option_1":"Co robisz?"},
+    {"name":"Fioletowy Trol", "text":"Stoje! Nie widac?", "option_1":"Rozumiem"},
+    {"name":"Fioletowy Trol", "text":"Zrespilem sie", "option_1":"Ciekawe"}  
+]

@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/Szpaku - Plaska ziemia.mp3-fd09b4a8da87267a73675d5c4cb63c4d.mp3str"
+
+[deps]
+
+source_file="res://audio/music/Szpaku - Plaska ziemia.mp3"
+dest_files=[ "res://.import/Szpaku - Plaska ziemia.mp3-fd09b4a8da87267a73675d5c4cb63c4d.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

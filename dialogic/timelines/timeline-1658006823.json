@@ -1,0 +1,199 @@
+{
+	"events": [
+		{
+			"character": "character-1658005458.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Psst, ej."
+		},
+		{
+			"character": "character-1658005119.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "tt ak, halo?!"
+		},
+		{
+			"character": "character-1658005458.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "No wreszcie sie obudziłeś."
+		},
+		{
+			"character": "character-1658005458.json",
+			"event_id": "dialogic_010",
+			"options": [
+
+			],
+			"portrait": "",
+			"question": "Dali ci coś na sen?"
+		},
+		{
+			"choice": "Nic nie pamiętam",
+			"condition": "",
+			"definition": "",
+			"event_id": "dialogic_011",
+			"value": ""
+		},
+		{
+			"definition": "1658050888-947",
+			"event_id": "dialogic_014",
+			"operation": "=",
+			"random_upper_limit": 100,
+			"set_random": false,
+			"set_value": "0"
+		},
+		{
+			"event_id": "dialogic_015",
+			"id": "anchor-1658049073",
+			"index": 0,
+			"name": "Nic nie pamiętam"
+		},
+		{
+			"character": "character-1658005119.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Nic nie pamiętam."
+		},
+		{
+			"character": "character-1658005458.json",
+			"event_id": "dialogic_010",
+			"options": [
+
+			],
+			"portrait": "",
+			"question": "Nieźle odleciałeś... Ciężko było cię obudzić."
+		},
+		{
+			"choice": "Dokąd nas zabierają?",
+			"condition": "",
+			"definition": "1658051259-487",
+			"event_id": "dialogic_011",
+			"value": "1"
+		},
+		{
+			"anchor_id": "anchor-1634488067",
+			"event_id": "dialogic_016"
+		},
+		{
+			"choice": "(KONIEC)",
+			"condition": "",
+			"definition": "",
+			"event_id": "dialogic_011",
+			"value": ""
+		},
+		{
+			"event_id": "dialogic_015",
+			"id": "anchor-1634488067",
+			"index": 0,
+			"name": "Koniec"
+		},
+		{
+			"definition": "1658050888-947",
+			"event_id": "dialogic_014",
+			"operation": "=",
+			"random_upper_limit": 100,
+			"set_random": false,
+			"set_value": "1"
+		},
+		{
+			"definition": "1658051259-487",
+			"event_id": "dialogic_014",
+			"operation": "=",
+			"random_upper_limit": 100,
+			"set_random": false,
+			"set_value": "1"
+		},
+		{
+			"event_id": "dialogic_022",
+			"transition_duration": 1
+		},
+		{
+			"event_id": "dialogic_013"
+		},
+		{
+			"choice": "Dokad nas zabierają?",
+			"condition": "",
+			"definition": "",
+			"event_id": "dialogic_011",
+			"value": ""
+		},
+		{
+			"definition": "1658051259-487",
+			"event_id": "dialogic_014",
+			"operation": "=",
+			"random_upper_limit": 100,
+			"set_random": false,
+			"set_value": "0"
+		},
+		{
+			"event_id": "dialogic_015",
+			"id": "anchor-1634488067",
+			"index": 0,
+			"name": "Dokąd nas zabierają?"
+		},
+		{
+			"character": "character-1658005119.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Dokąd nas zabierają?"
+		},
+		{
+			"character": "character-1658005458.json",
+			"event_id": "dialogic_010",
+			"options": [
+
+			],
+			"portrait": "",
+			"question": "Pewnie na Ferum... To najbliższa mordownia w tym układzie."
+		},
+		{
+			"choice": "Nic nie pamiętam",
+			"condition": "",
+			"definition": "1658050888-947",
+			"event_id": "dialogic_011",
+			"value": "1"
+		},
+		{
+			"anchor_id": "anchor-1658049073",
+			"event_id": "dialogic_016"
+		},
+		{
+			"choice": "(KONIEC)",
+			"condition": "",
+			"definition": "",
+			"event_id": "dialogic_011",
+			"value": ""
+		},
+		{
+			"definition": "1658050888-947",
+			"event_id": "dialogic_014",
+			"operation": "=",
+			"random_upper_limit": 100,
+			"set_random": false,
+			"set_value": "1"
+		},
+		{
+			"definition": "1658051259-487",
+			"event_id": "dialogic_014",
+			"operation": "=",
+			"random_upper_limit": 100,
+			"set_random": false,
+			"set_value": "1"
+		},
+		{
+			"event_id": "dialogic_022",
+			"transition_duration": 1
+		},
+		{
+			"event_id": "dialogic_013"
+		},
+		{
+			"event_id": "dialogic_013"
+		}
+	],
+	"metadata": {
+		"dialogic-version": "1.4.5",
+		"file": "timeline-1658006823.json",
+		"name": "Nieznajomy_1_Statek_Wiezienny"
+	}
+}

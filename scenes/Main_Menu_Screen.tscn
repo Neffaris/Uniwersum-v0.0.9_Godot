@@ -1,0 +1,219 @@
+[gd_scene load_steps=13 format=2]
+
+[ext_resource path="res://objects/Menu_button.tscn" type="PackedScene" id=1]
+[ext_resource path="res://scripts/GDScript/Fullscreen_Control.gd" type="Script" id=2]
+[ext_resource path="res://scripts/GDScript/Load_Button.gd" type="Script" id=3]
+[ext_resource path="res://fonts/poco/Poco.ttf" type="DynamicFontData" id=4]
+[ext_resource path="res://scripts/GDScript/Scenes/Main_Menu.gd" type="Script" id=5]
+[ext_resource path="res://scripts/GDScript/Menu Buttons/Exit_Button.gd" type="Script" id=6]
+[ext_resource path="res://scripts/GDScript/Menu Buttons/Back_To_Main_Menu_Button_3.gd" type="Script" id=7]
+[ext_resource path="res://scripts/GDScript/Options_Button.gd" type="Script" id=8]
+[ext_resource path="res://fonts/poco/Poco.tres" type="DynamicFont" id=9]
+
+[sub_resource type="DynamicFont" id=7]
+size = 85
+use_mipmaps = true
+extra_spacing_top = -18
+extra_spacing_bottom = 2
+font_data = ExtResource( 4 )
+
+[sub_resource type="DynamicFont" id=8]
+size = 20
+use_mipmaps = true
+extra_spacing_top = -18
+extra_spacing_bottom = 2
+font_data = ExtResource( 4 )
+
+[sub_resource type="DynamicFont" id=9]
+size = 30
+use_mipmaps = true
+extra_spacing_top = -18
+extra_spacing_bottom = 2
+font_data = ExtResource( 4 )
+
+[node name="Main_Menu" type="Node2D"]
+pause_mode = 2
+position = Vector2( -48, 0 )
+script = ExtResource( 5 )
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2( 560, 304 )
+current = true
+
+[node name="Title" type="RichTextLabel" parent="."]
+margin_left = 376.0
+margin_top = 80.0
+margin_right = 768.0
+margin_bottom = 168.0
+custom_fonts/normal_font = SubResource( 7 )
+text = "UNIWERSUM
+
+"
+scroll_active = false
+
+[node name="New_Game_Button" parent="." instance=ExtResource( 1 )]
+margin_left = 464.0
+margin_top = 192.0
+margin_right = 656.0
+margin_bottom = 256.0
+rect_pivot_offset = Vector2( 136, -32 )
+focus_neighbour_top = NodePath("../Exit_Button")
+focus_neighbour_bottom = NodePath("../Load_Game_Button")
+custom_fonts/font = ExtResource( 9 )
+text = "Nowa Gra"
+reference_path = "res://scenes/Test_Dungeon.tscn"
+start_focused = true
+
+[node name="Load_Game_Button" parent="." instance=ExtResource( 1 )]
+margin_left = 464.0
+margin_top = 272.0
+margin_right = 656.0
+margin_bottom = 336.0
+rect_pivot_offset = Vector2( 136, -32 )
+focus_neighbour_top = NodePath("../New_Game_Button")
+focus_neighbour_bottom = NodePath("../Options_Button")
+custom_fonts/font = ExtResource( 9 )
+text = "Wczytaj grę"
+script = ExtResource( 3 )
+
+[node name="Options_Button" parent="." instance=ExtResource( 1 )]
+margin_left = 464.0
+margin_top = 352.0
+margin_right = 656.0
+margin_bottom = 416.0
+rect_pivot_offset = Vector2( 136, -32 )
+focus_neighbour_top = NodePath("../Load_Game_Button")
+focus_neighbour_bottom = NodePath("../Exit_Button")
+custom_fonts/font = ExtResource( 9 )
+text = "Opcje"
+script = ExtResource( 8 )
+
+[node name="Exit_Button" parent="." instance=ExtResource( 1 )]
+margin_left = 464.0
+margin_top = 432.0
+margin_right = 656.0
+margin_bottom = 496.0
+rect_pivot_offset = Vector2( 136, -32 )
+focus_neighbour_top = NodePath("../Options_Button")
+focus_neighbour_bottom = NodePath("../New_Game_Button")
+custom_fonts/font = ExtResource( 9 )
+text = "Wyjście z gry"
+script = ExtResource( 6 )
+
+[node name="Version_Number" type="RichTextLabel" parent="."]
+margin_left = 976.0
+margin_top = 552.0
+margin_right = 1040.0
+margin_bottom = 584.0
+custom_fonts/normal_font = ExtResource( 9 )
+text = "
+v0.0.9
+"
+scroll_active = false
+
+[node name="Exit_Button_2" parent="." instance=ExtResource( 1 )]
+margin_left = 360.0
+margin_top = 288.0
+margin_right = 552.0
+margin_bottom = 352.0
+rect_pivot_offset = Vector2( 136, -32 )
+focus_neighbour_left = NodePath("../Back_To_Main_Menu_Button_3")
+focus_neighbour_right = NodePath("../Back_To_Main_Menu_Button_3")
+custom_fonts/font = ExtResource( 9 )
+text = "Wyjdź z gry"
+
+[node name="Back_Or_Exit_Question_2" type="RichTextLabel" parent="."]
+visible = false
+margin_left = 288.0
+margin_top = 216.0
+margin_right = 608.0
+margin_bottom = 268.0
+rect_scale = Vector2( 2, 2 )
+custom_fonts/normal_font = ExtResource( 9 )
+text = "
+Czy napewno chcesz opuścić grę?
+"
+scroll_active = false
+
+[node name="Back_To_Main_Menu_Button_3" parent="." instance=ExtResource( 1 )]
+margin_left = 568.0
+margin_top = 288.0
+margin_right = 760.0
+margin_bottom = 352.0
+rect_pivot_offset = Vector2( 136, -32 )
+focus_neighbour_left = NodePath("../Exit_Button_2")
+focus_neighbour_right = NodePath("../Exit_Button_2")
+custom_fonts/font = ExtResource( 9 )
+text = "Wróć"
+script = ExtResource( 7 )
+
+[node name="Back_To_Main_Menu_Button_4" parent="." instance=ExtResource( 1 )]
+margin_left = 464.0
+margin_top = 432.0
+margin_right = 656.0
+margin_bottom = 496.0
+rect_pivot_offset = Vector2( 136, -32 )
+custom_fonts/font = ExtResource( 9 )
+text = "Wróć do menu"
+script = ExtResource( 7 )
+
+[node name="Options_Text" type="RichTextLabel" parent="."]
+margin_left = 48.0
+margin_top = 8.0
+margin_right = 725.0
+margin_bottom = 280.0
+rect_scale = Vector2( 1.5, 1.5 )
+custom_fonts/normal_font = SubResource( 8 )
+text = "
+
+				              
+							  STEROWANIE		
+				
+						
+  Klawisze W/A/S/D, Strzałki lub lewy przycisk myszy - Ruch postaci
+
+
+  Shift - Bieg
+
+
+  E - Akcja
+
+
+  Spacja/Lewy przycisk myszki - Następny dialog
+
+
+  I - Ekwipunek
+
+
+  ESC - Pauza/Menu
+
+
+
+
+
+"
+scroll_active = false
+
+[node name="Fullscreen_Control" type="Control" parent="."]
+margin_left = 200.0
+margin_top = 320.0
+margin_right = 464.0
+margin_bottom = 400.0
+script = ExtResource( 2 )
+
+[node name="Fullscreen_Check_Text" type="RichTextLabel" parent="Fullscreen_Control"]
+margin_right = 248.0
+margin_bottom = 88.0
+custom_fonts/normal_font = SubResource( 9 )
+text = "
+
+Pełny ekran"
+
+[node name="Fullscreen_Check_Switch" type="CheckButton" parent="Fullscreen_Control"]
+margin_left = 160.0
+margin_top = 32.0
+margin_right = 236.0
+margin_bottom = 72.0
+pressed = true
+
+[connection signal="pressed" from="Fullscreen_Control/Fullscreen_Check_Switch" to="Fullscreen_Control" method="_on_Fullscreen_Check_Button_pressed"]

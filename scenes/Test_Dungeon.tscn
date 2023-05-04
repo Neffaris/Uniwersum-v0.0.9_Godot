@@ -1,0 +1,49 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://scenes/tileset.tres" type="TileSet" id=1]
+[ext_resource path="res://Player and other mobs scenes/Player.tscn" type="PackedScene" id=2]
+[ext_resource path="res://scripts/GDScript/Scenes/Test_Dungeon.gd" type="Script" id=3]
+[ext_resource path="res://Player and other mobs scenes/purple_troll.tscn" type="PackedScene" id=4]
+[ext_resource path="res://sprites/light/light_orb.png" type="Texture" id=6]
+
+[node name="Test_Dungeon" type="Node2D"]
+script = ExtResource( 3 )
+
+[node name="Floor" type="TileMap" parent="."]
+tile_set = ExtResource( 1 )
+cell_size = Vector2( 128, 64 )
+cell_tile_origin = 1
+centered_textures = true
+collision_layer = 0
+collision_mask = 0
+format = 1
+tile_data = PoolIntArray( 589842, 3, 0 )
+
+[node name="Walls" type="TileMap" parent="."]
+position = Vector2( 1218, 1 )
+tile_set = ExtResource( 1 )
+cell_size = Vector2( 128, 64 )
+cell_tile_origin = 1
+cell_y_sort = true
+centered_textures = true
+format = 1
+
+[node name="YSort" type="YSort" parent="Walls"]
+position = Vector2( 667, 419 )
+
+[node name="Player" parent="Walls/YSort" instance=ExtResource( 2 )]
+pause_mode = 0
+position = Vector2( 294, 342 )
+collision_mask = 13
+
+[node name="Purple_Troll" parent="Walls/YSort" instance=ExtResource( 4 )]
+position = Vector2( 816, 144 )
+collision_mask = 12
+
+[node name="Light_Orb" type="Light2D" parent="."]
+visible = false
+light_mask = 3
+position = Vector2( 1040, -240 )
+scale = Vector2( 5, 5 )
+texture = ExtResource( 6 )
+shadow_enabled = true

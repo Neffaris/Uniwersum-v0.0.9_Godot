@@ -1,0 +1,357 @@
+[gd_scene load_steps=24 format=2]
+
+[ext_resource path="res://fonts/poco/Poco.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://objects/Menu_button.tscn" type="PackedScene" id=2]
+[ext_resource path="res://ui/Inventory_Panel.tscn" type="PackedScene" id=3]
+[ext_resource path="res://scripts/GDScript/Player.gd" type="Script" id=4]
+[ext_resource path="res://sprites/troll.png" type="Texture" id=5]
+[ext_resource path="res://scripts/GDScript/Camera_2D.gd" type="Script" id=6]
+[ext_resource path="res://scripts/GDScript/Menu Buttons/Exit_To_Desktop_Button.gd" type="Script" id=7]
+[ext_resource path="res://scripts/GDScript/Menu Buttons/Back_To_Game_Button.gd" type="Script" id=8]
+[ext_resource path="res://scripts/GDScript/Menu Buttons/Exit_To_Main_Menu_Button.gd" type="Script" id=9]
+[ext_resource path="res://scripts/GDScript/Menu Buttons/Exit_To_Desktop_Button_2.gd" type="Script" id=10]
+[ext_resource path="res://scripts/GDScript/Menu Buttons/Back_To_Menu_Button.gd" type="Script" id=11]
+[ext_resource path="res://scripts/GDScript/Menu Buttons/Exit_To_Main_Menu_Button_2.gd" type="Script" id=12]
+[ext_resource path="res://scripts/GDScript/Menu Buttons/Back_To_Menu_Button_2.gd" type="Script" id=13]
+[ext_resource path="res://scripts/GDScript/Menu Buttons/Save_And_Load_Button.gd" type="Script" id=14]
+[ext_resource path="res://fonts/poco/Poco.tres" type="DynamicFont" id=15]
+[ext_resource path="res://scripts/GDScript/Fullscreen_Control.gd" type="Script" id=16]
+[ext_resource path="res://scripts/GDScript/Pause_Menu_Options_Button.gd" type="Script" id=17]
+[ext_resource path="res://scripts/GDScript/Back_To_Pause_Menu.gd" type="Script" id=18]
+
+[sub_resource type="OccluderPolygon2D" id=12]
+closed = false
+cull_mode = 2
+polygon = PoolVector2Array( 1, 0, 8, 0, 8, -3, 11, -10, 15, -8, 23, -10, 24, -14, 36, -13, 37, -16 )
+
+[sub_resource type="CapsuleShape2D" id=5]
+radius = 17.3912
+height = 1.83228
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 40, 36 )
+
+[sub_resource type="DynamicFont" id=11]
+size = 20
+use_mipmaps = true
+extra_spacing_top = -18
+extra_spacing_bottom = 2
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=10]
+size = 30
+use_mipmaps = true
+extra_spacing_top = -18
+extra_spacing_bottom = 2
+font_data = ExtResource( 1 )
+
+[node name="Player" type="KinematicBody2D"]
+pause_mode = 2
+position = Vector2( 512, 328 )
+collision_layer = 2
+collision_mask = 12
+script = ExtResource( 4 )
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2( 0, -24 )
+scale = Vector2( 0.9, 0.9 )
+current = true
+script = ExtResource( 6 )
+
+[node name="Sprite" type="Sprite" parent="."]
+position = Vector2( -4, -28 )
+texture = ExtResource( 5 )
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="Sprite"]
+show_behind_parent = true
+position = Vector2( -8, 40 )
+occluder = SubResource( 12 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( -18, -18 )
+shape = SubResource( 5 )
+
+[node name="Beings_Detector" type="Area2D" parent="."]
+position = Vector2( -1, 0 )
+collision_mask = 12
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Beings_Detector"]
+position = Vector2( 4, -28 )
+shape = SubResource( 2 )
+
+[node name="Menu_And_HUD" parent="." instance=ExtResource( 3 )]
+pause_mode = 2
+layer = 2
+
+[node name="Paused_Info" type="RichTextLabel" parent="Menu_And_HUD"]
+margin_left = 280.0
+margin_right = 418.0
+margin_bottom = 24.0
+rect_scale = Vector2( 3.5, 3.5 )
+custom_fonts/normal_font = ExtResource( 15 )
+text = "
+ 
+Gra zatrzymana"
+scroll_active = false
+
+[node name="Options_Text" type="RichTextLabel" parent="Menu_And_HUD"]
+margin_top = 8.0
+margin_right = 677.0
+margin_bottom = 280.0
+rect_scale = Vector2( 1.5, 1.5 )
+custom_fonts/normal_font = SubResource( 11 )
+text = "
+
+				              
+							  STEROWANIE		
+				
+						
+  Klawisze W/A/S/D, Strzałki lub lewy przycisk myszy - Ruch postaci
+
+
+  Shift - Bieg
+
+
+  E - Akcja
+
+
+  Spacja/Lewy przycisk myszki - Następny dialog
+
+
+  I - Ekwipunek
+
+
+  ESC - Pauza/Menu
+
+
+
+
+
+"
+scroll_active = false
+
+[node name="Game_Has_Been_Saved_Info" type="RichTextLabel" parent="Menu_And_HUD"]
+margin_left = 328.0
+margin_top = 88.0
+margin_right = 528.0
+margin_bottom = 120.0
+rect_scale = Vector2( 2, 2 )
+custom_fonts/normal_font = ExtResource( 15 )
+text = "
+Gra została zapisana"
+scroll_active = false
+
+[node name="Back_To_Game_Button" parent="Menu_And_HUD" instance=ExtResource( 2 )]
+show_behind_parent = true
+margin_left = 416.0
+margin_top = 128.0
+margin_right = 608.0
+margin_bottom = 192.0
+rect_pivot_offset = Vector2( 136, -32 )
+focus_neighbour_top = NodePath("../Exit_To_Desktop_Button")
+focus_neighbour_bottom = NodePath("../Save_And_Load_Button")
+custom_fonts/font = ExtResource( 15 )
+text = "Wróć do gry"
+script = ExtResource( 8 )
+
+[node name="Save_And_Load_Button" parent="Menu_And_HUD" instance=ExtResource( 2 )]
+margin_left = 416.0
+margin_top = 208.0
+margin_right = 608.0
+margin_bottom = 272.0
+rect_pivot_offset = Vector2( 136, -32 )
+focus_neighbour_top = NodePath("../Back_To_Game_Button")
+focus_neighbour_bottom = NodePath("../Pause_Menu_Options_Button")
+custom_fonts/font = ExtResource( 15 )
+text = "Zapisz Grę"
+script = ExtResource( 14 )
+
+[node name="Pause_Menu_Options_Button" parent="Menu_And_HUD" instance=ExtResource( 2 )]
+margin_left = 416.0
+margin_top = 288.0
+margin_right = 608.0
+margin_bottom = 352.0
+rect_pivot_offset = Vector2( 136, -32 )
+focus_neighbour_top = NodePath("../Save_And_Load_Button")
+focus_neighbour_bottom = NodePath("../Exit_To_Main_Menu_Button")
+custom_fonts/font = ExtResource( 15 )
+text = "Opcje"
+script = ExtResource( 17 )
+
+[node name="Back_To_Pause_Menu" parent="Menu_And_HUD" instance=ExtResource( 2 )]
+show_behind_parent = true
+margin_left = 416.0
+margin_top = 448.0
+margin_right = 608.0
+margin_bottom = 512.0
+rect_pivot_offset = Vector2( 136, -32 )
+focus_neighbour_top = NodePath("../Exit_To_Desktop_Button")
+focus_neighbour_bottom = NodePath("../Save_And_Load_Button")
+custom_fonts/font = ExtResource( 15 )
+text = "Wróć"
+script = ExtResource( 18 )
+
+[node name="Exit_To_Main_Menu_Button" parent="Menu_And_HUD" instance=ExtResource( 2 )]
+pause_mode = 2
+margin_left = 416.0
+margin_top = 368.0
+margin_right = 608.0
+margin_bottom = 432.0
+rect_pivot_offset = Vector2( 136, -32 )
+focus_neighbour_top = NodePath("../Pause_Menu_Options_Button")
+focus_neighbour_bottom = NodePath("../Exit_To_Desktop_Button")
+custom_fonts/font = ExtResource( 15 )
+text = "Wyjdź do menu"
+script = ExtResource( 9 )
+
+[node name="Exit_To_Desktop_Button" parent="Menu_And_HUD" instance=ExtResource( 2 )]
+pause_mode = 2
+margin_left = 416.0
+margin_top = 448.0
+margin_right = 608.0
+margin_bottom = 512.0
+rect_pivot_offset = Vector2( 136, -32 )
+focus_neighbour_top = NodePath("../Exit_To_Main_Menu_Button")
+focus_neighbour_bottom = NodePath("../Back_To_Game_Button")
+custom_fonts/font = ExtResource( 15 )
+text = "Wyjdź do pulpitu"
+script = ExtResource( 7 )
+
+[node name="Exit_To_Main_Menu_Button_2" parent="Menu_And_HUD" instance=ExtResource( 2 )]
+pause_mode = 2
+margin_left = 312.0
+margin_top = 248.0
+margin_right = 504.0
+margin_bottom = 312.0
+rect_pivot_offset = Vector2( 136, -32 )
+focus_neighbour_left = NodePath("../Back_To_Menu_Button_2")
+focus_neighbour_right = NodePath("../Back_To_Menu_Button_2")
+custom_fonts/font = ExtResource( 15 )
+text = "Wyjdź do menu"
+script = ExtResource( 12 )
+
+[node name="Back_To_Menu_Button" parent="Menu_And_HUD" instance=ExtResource( 2 )]
+margin_left = 520.0
+margin_top = 248.0
+margin_right = 712.0
+margin_bottom = 312.0
+rect_pivot_offset = Vector2( 136, -32 )
+focus_neighbour_left = NodePath("../Exit_To_Desktop_Button_2")
+focus_neighbour_right = NodePath("../Exit_To_Desktop_Button_2")
+custom_fonts/font = ExtResource( 15 )
+text = "Wróć"
+script = ExtResource( 11 )
+
+[node name="Back_To_Menu_Button_2" parent="Menu_And_HUD" instance=ExtResource( 2 )]
+margin_left = 520.0
+margin_top = 248.0
+margin_right = 712.0
+margin_bottom = 312.0
+rect_pivot_offset = Vector2( 136, -32 )
+focus_neighbour_left = NodePath("../Exit_To_Main_Menu_Button_2")
+focus_neighbour_right = NodePath("../Exit_To_Main_Menu_Button_2")
+custom_fonts/font = ExtResource( 15 )
+text = "Wróć"
+script = ExtResource( 13 )
+
+[node name="Exit_To_Desktop_Button_2" parent="Menu_And_HUD" instance=ExtResource( 2 )]
+margin_left = 312.0
+margin_top = 248.0
+margin_right = 504.0
+margin_bottom = 312.0
+rect_pivot_offset = Vector2( 136, -32 )
+focus_neighbour_left = NodePath("../Back_To_Menu_Button")
+focus_neighbour_right = NodePath("../Back_To_Menu_Button")
+custom_fonts/font = ExtResource( 15 )
+text = "Wyjdź do pulpitu"
+script = ExtResource( 10 )
+
+[node name="Back_Or_Exit_Question" type="RichTextLabel" parent="Menu_And_HUD"]
+margin_left = 184.0
+margin_top = 136.0
+margin_right = 560.0
+margin_bottom = 196.0
+rect_scale = Vector2( 2, 2 )
+custom_fonts/normal_font = ExtResource( 15 )
+text = "
+
+Niezapisany stan gry zostanie utracony.
+
+Czy napewno chcesz kontynuować?"
+scroll_active = false
+
+[node name="Help_Info" type="RichTextLabel" parent="Menu_And_HUD"]
+margin_top = 8.0
+margin_right = 683.0
+margin_bottom = 403.0
+rect_scale = Vector2( 1.5, 1.5 )
+custom_fonts/normal_font = ExtResource( 15 )
+text = "
+
+
+
+                                 ^
+			
+	                  Aktualna lokalizacja gracza
+	
+	
+	                                            
+												Ekwipunek >
+		
+		
+		
+	
+	
+	   
+       
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	                        Pasek zdrowia
+	         
+		  
+		                         v"
+scroll_active = false
+
+[node name="Fullscreen_Control" type="Control" parent="Menu_And_HUD"]
+margin_left = 136.0
+margin_top = 360.0
+margin_right = 448.0
+margin_bottom = 448.0
+script = ExtResource( 16 )
+
+[node name="Fullscreen_Check_Text" type="RichTextLabel" parent="Menu_And_HUD/Fullscreen_Control"]
+margin_top = -24.0
+margin_right = 248.0
+margin_bottom = 64.0
+custom_fonts/normal_font = SubResource( 10 )
+text = "
+
+Pełny ekran"
+
+[node name="Fullscreen_Check_Switch" type="CheckButton" parent="Menu_And_HUD/Fullscreen_Control"]
+margin_left = 176.0
+margin_top = 8.0
+margin_right = 252.0
+margin_bottom = 48.0
+pressed = true
+__meta__ = {
+"_editor_description_": ""
+}
+
+[connection signal="pressed" from="Menu_And_HUD/Fullscreen_Control/Fullscreen_Check_Switch" to="Menu_And_HUD/Fullscreen_Control" method="_on_Fullscreen_Check_Button_pressed"]

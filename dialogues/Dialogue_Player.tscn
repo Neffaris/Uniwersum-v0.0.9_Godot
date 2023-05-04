@@ -1,0 +1,88 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://scripts/GDScript/unused/Purple_Troll_Dialogue_Player.gd" type="Script" id=1]
+[ext_resource path="res://ui/black.png" type="Texture" id=2]
+
+[node name="Purple_Troll_Dialogue_Player" type="CanvasLayer"]
+script = ExtResource( 1 )
+dialogue_file = "res://dialogues/jsons/purple_troll.json"
+
+[node name="NinePatchRect" type="NinePatchRect" parent="."]
+margin_left = 256.0
+margin_top = 384.0
+margin_right = 768.0
+margin_bottom = 576.0
+texture = ExtResource( 2 )
+
+[node name="Name" type="RichTextLabel" parent="NinePatchRect"]
+margin_left = 72.0
+margin_top = 8.0
+margin_right = 184.0
+margin_bottom = 24.0
+text = "Name
+
+"
+scroll_active = false
+
+[node name="Text" type="RichTextLabel" parent="NinePatchRect"]
+margin_left = 64.0
+margin_top = 32.0
+margin_right = 488.0
+margin_bottom = 80.0
+text = "Text
+
+"
+scroll_active = false
+
+[node name="Option_Button_1" type="Button" parent="NinePatchRect"]
+margin_left = 8.0
+margin_top = 88.0
+margin_right = 127.0
+margin_bottom = 108.0
+rect_pivot_offset = Vector2( -160, 24 )
+disabled = true
+action_mode = 0
+text = "Option_Button_1"
+
+[node name="Option_Button_2" type="Button" parent="NinePatchRect"]
+margin_left = 8.0
+margin_top = 112.0
+margin_right = 127.0
+margin_bottom = 132.0
+rect_pivot_offset = Vector2( -160, 24 )
+disabled = true
+action_mode = 0
+text = "Option_Button_2"
+
+[node name="Option_Button_3" type="Button" parent="NinePatchRect"]
+margin_left = 8.0
+margin_top = 136.0
+margin_right = 127.0
+margin_bottom = 156.0
+rect_pivot_offset = Vector2( -160, 24 )
+disabled = true
+action_mode = 0
+text = "Option_Button_3"
+
+[node name="Option_Button_4" type="Button" parent="NinePatchRect"]
+margin_left = 8.0
+margin_top = 160.0
+margin_right = 127.0
+margin_bottom = 180.0
+rect_pivot_offset = Vector2( -160, 24 )
+disabled = true
+action_mode = 0
+text = "Option_Button_4"
+
+[node name="Text_Speed_Timer" type="Timer" parent="."]
+wait_time = 5.0
+one_shot = true
+
+[node name="Next_Dialogue_Timer" type="Timer" parent="."]
+wait_time = 0.4
+
+[connection signal="pressed" from="NinePatchRect/Option_Button_1" to="." method="_on_Option_Button_1_pressed"]
+[connection signal="pressed" from="NinePatchRect/Option_Button_2" to="." method="_on_Option_Button_2_pressed"]
+[connection signal="pressed" from="NinePatchRect/Option_Button_3" to="." method="_on_Option_Button_3_pressed"]
+[connection signal="pressed" from="NinePatchRect/Option_Button_4" to="." method="_on_Option_Button_4_pressed"]
+[connection signal="timeout" from="Text_Speed_Timer" to="." method="_on_Timer_timeout"]

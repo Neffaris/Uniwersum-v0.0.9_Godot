@@ -1,0 +1,51 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://scripts/GDScript/NPC's/Purple_Troll.gd" type="Script" id=1]
+[ext_resource path="res://sprites/purple_troll.png" type="Texture" id=2]
+[ext_resource path="res://ui/HP_Bar.tscn" type="PackedScene" id=3]
+[ext_resource path="res://ui/HP_Bar_Purple_Troll.gd" type="Script" id=4]
+[ext_resource path="res://objects/E_Button.tscn" type="PackedScene" id=5]
+
+[sub_resource type="CircleShape2D" id=3]
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 48, 14.4917 )
+
+[node name="Purple_Troll" type="KinematicBody2D"]
+collision_layer = 4
+collision_mask = 14
+script = ExtResource( 1 )
+
+[node name="Sprite" type="Sprite" parent="."]
+texture = ExtResource( 2 )
+flip_h = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( -8, 24 )
+scale = Vector2( 2, 2 )
+shape = SubResource( 3 )
+
+[node name="Player_Detector" type="Area2D" parent="."]
+position = Vector2( -2, 0 )
+collision_layer = 4
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player_Detector"]
+position = Vector2( 0, -1.19209e-06 )
+scale = Vector2( 1, 3.31225 )
+shape = SubResource( 2 )
+
+[node name="E_Button" parent="Player_Detector" instance=ExtResource( 5 )]
+margin_left = -26.0
+margin_top = -91.0
+margin_right = -26.0
+margin_bottom = -91.0
+
+[node name="HP_Bar" parent="." instance=ExtResource( 3 )]
+visible = false
+margin_top = -65.0
+margin_bottom = -33.0
+script = ExtResource( 4 )
+
+[connection signal="area_entered" from="Player_Detector" to="." method="_on_Player_Detector_area_entered"]
+[connection signal="area_exited" from="Player_Detector" to="." method="_on_Player_Detector_area_exited"]

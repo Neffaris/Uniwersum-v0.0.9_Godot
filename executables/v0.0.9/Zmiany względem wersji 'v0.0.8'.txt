@@ -1,0 +1,21 @@
+Zmiany względem wersji 'v0.0.8'
+
+Wersja 'v0.0.9'
+Nowości:
+- Gra została przebudowana z widoku izometrycznego na widok top-down
+- Dodano światło 2D koloru białego(#ffffff) pod postacią trzech kul w rożnych miejscach o różnym natężeniu
+- Dodano cienie 2D (Promienie światła reagują na gracza i powstaje cień)
+- Dodano dźwięk odtwarzany podczas wyświetlania kolejnych liter dialogu.
+Zaktualizowane:
+- Zmieniono układ ścian lokacji Test Dungeon
+- Zmieniono tekst informujący o wersji w menu głównym z "v0.0.8" na "v0.0.9"
+- Zmieniono nazwę wyświetlaną podczas dialogu oznaczającą dialog głównego bohatera "Zielony Trol. Ale i tak powiesz, że goblin" na "Zielony Troll"
+- Zmieniono czcionkę procentowej wartości zdrowia na pasku zdrowia z "Arial" na "poco"
+- Zmieniono stan przełącznika odpowiadającego za wybór pomiędzy trybem pełnoekranowym a okienkowy na wciśnięty, tzn. wcześniej w trybie pełnoekranowym przycisk pokazywał wartość 'OFF')
+- Zmieniono tekst przycisków 'Wyjście do pulpitu' oraz 'Wyjście do menu' na 'Wyjdź do pulpitu' i 'Wyjdź do menu'
+Poprawki błędów:
+-
+Ważne zmiany w silniku Godot:
+- Ponownie zaaktualizowano Dialogic z wersji 1.4.3 do wersji 1.4.5(Wcześniejsza aktualizacja przebiegła niepoprawnie i informacja o aktualizacji w liście zmian wersji 0.0.7 nie mówiła prawdy)
+Inne:
+-
